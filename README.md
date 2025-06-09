@@ -77,13 +77,13 @@ Anda bisa menjalankan proyek ini menggunakan Docker biasa atau dengan Docker Com
 
 2.  **Jalankan aplikasi:**
     ```bash
-    docker-compose up --build
+    sudo docker-compose up --build
     ```
-    Perintah ini akan membangun image dan menjalankan container secara otomatis. Untuk menjalankannya lagi di lain waktu, cukup gunakan `docker-compose up`.
+    Perintah ini akan membangun image dan menjalankan container secara otomatis. Untuk menjalankannya lagi di lain waktu, cukup gunakan `sudo docker-compose up`.
 
 3.  **Hentikan aplikasi:**
     ```bash
-    docker-compose down
+    sudo docker-compose down
     ```
 
 ### Menggunakan Docker Biasa
