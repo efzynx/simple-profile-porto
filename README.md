@@ -49,7 +49,7 @@ Untuk menjalankan proyek ini di lingkungan pengembangan lokal, ikuti langkah-lan
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/efzynx/simple-profile-porto.git](https://github.com/efzynx/simple-profile-porto.git)
+    git clone https://github.com/efzynx/simple-profile-porto.git
     cd simple-profile-porto
     ```
 
