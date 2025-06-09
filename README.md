@@ -90,12 +90,12 @@ Anda bisa menjalankan proyek ini menggunakan Docker biasa atau dengan Docker Com
 
 1.  **Build Docker image:**
     ```bash
-    docker build -t simple-profile-porto .
+    sudo docker build -t simple-profile-porto .
     ```
 
 2.  **Jalankan Docker container:**
     ```bash
-    docker run -p 3000:3000 simple-profile-porto
+    sudo docker run -p 3000:3000 simple-profile-porto
     ```
 
 ---
