@@ -36,7 +36,7 @@ Selamat datang di repositori untuk website portofolio pribadi saya. Proyek ini d
 -   **Framework:** [Next.js](https://nextjs.org/) 14+ (App Router)
 -   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 -   **Animasi:** [Framer Motion](https://www.framer.com/motion/)
--   **Bahasa:** JavaScript
+-   **Bahasa:** [JavaScript](https://id.wikipedia.org/wiki/JavaScript)
 -   **Ikon:** [Lucide React](https://lucide.dev/)
 -   **Deployment:** [Vercel](https://vercel.com/)
 -   **Containerization:** [Docker](https://www.docker.com/)
@@ -49,8 +49,8 @@ Untuk menjalankan proyek ini di lingkungan pengembangan lokal, ikuti langkah-lan
 
 1.  **Clone repositori ini:**
     ```bash
-    git clone [https://github.com/USERNAME_ANDA/NAMA_REPOSITORI_ANDA.git](https://github.com/USERNAME_ANDA/NAMA_REPOSITORI_ANDA.git)
-    cd NAMA_REPOSITORI_ANDA
+    git clone [https://github.com/efzynx/simple-profile-porto.git](https://github.com/efzynx/simple-profile-porto.git)
+    cd simple-profile-porto
     ```
 
 2.  **Instal dependensi:**
