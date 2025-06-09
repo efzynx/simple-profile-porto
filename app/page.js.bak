@@ -1,52 +1,59 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, useAnimationControls } from 'framer-motion';
-import { Github, Linkedin, Mail, Smartphone, MapPin, ArrowRight, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Github, Linkedin, Mail, Smartphone, MapPin, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
+// Import data terpusat
 import { portfolioData } from '../data';
 
-const InteractiveName = ({ text, className }) => {
+// === KOMPONEN ANIMASI MENGETIK (VERSI STABIL) ===
+const AnimatedText = ({ text, el: Wrapper = 'h1', className }) => {
   const letters = Array.from(text);
-  const controls = useAnimationControls();
+  
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+    },
+  };
 
-  useEffect(() => {
-    const sequence = async () => {
-      await controls.start((i) => ({
-        opacity: 1,
-        y: 0,
-        transition: { delay: i * 0.05, type: 'spring', damping: 12, stiffness: 100 },
-      }));
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      const interval = setInterval(() => {
-        controls.start((i) => ({
-          y: [0, -8, 0],
-          transition: { delay: i * 0.05, duration: 0.5, ease: 'easeInOut' },
-        }));
-      }, 5000);
-      return () => clearInterval(interval);
-    };
-    sequence();
-  }, [controls]);
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring", damping: 12, stiffness: 100 },
+    },
+  };
 
   return (
-    <motion.h1 className={`flex flex-wrap justify-center ${className}`} aria-label={text}>
-      {letters.map((letter, index) => (
-        <motion.span
-          key={index}
-          custom={index}
-          initial={{ opacity: 0, y: 20 }}
-          animate={controls}
-          className={`inline-block ${letter === ' ' ? 'w-2 md:w-4' : ''}`}
-        >
-          {letter}
-        </motion.span>
-      ))}
-    </motion.h1>
+    <Wrapper className={className}>
+      <motion.span
+        className="flex flex-wrap justify-center overflow-hidden"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        aria-label={text}
+      >
+        {letters.map((letter, index) => (
+          <motion.span
+            key={index}
+            variants={childVariants}
+            className={letter === ' ' ? 'w-2 md:w-4' : ''}
+          >
+            {letter}
+          </motion.span>
+        ))}
+      </motion.span>
+    </Wrapper>
   );
 };
 
+
+// Varian animasi umum
 const fadeInUp = {
     initial: { opacity: 0, y: 40 },
     animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.2, 0.8, 0.2, 1] } }
@@ -67,8 +74,12 @@ export default function PortfolioPage() {
 
     return (
         <div className="relative text-gray-200 font-sans leading-relaxed selection:bg-purple-500/30">
+            <div className="fixed inset-0 -z-10 overflow-hidden">
+                <div className="absolute top-0 left-0 w-3/4 h-3/4 bg-gradient-to-br from-indigo-700/60 to-transparent rounded-full blur-3xl opacity-50 animate-pulse-slow"></div>
+                <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-purple-700/50 to-transparent rounded-full blur-3xl opacity-50 animate-pulse-slow [animation-delay:2s]"></div>
+            </div>
+
             <main className="relative z-10 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
-                {/* HERO SECTION */}
                 <motion.section 
                     id="home" 
                     className="min-h-screen flex flex-col justify-center items-center text-center py-20"
@@ -76,34 +87,20 @@ export default function PortfolioPage() {
                     initial="initial"
                     animate="animate"
                 >
-                    <InteractiveName
+                    <AnimatedText 
                         text={portfolioData.name} 
-                        className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent 
-                                   bg-gradient-to-br from-indigo-300 via-purple-400 to-pink-400"
+                        className="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 bg-clip-text text-transparent bg-gradient-to-br from-indigo-300 via-purple-400 to-pink-400"
                     />
+
                     <motion.p variants={fadeInUp} className="text-base sm:text-xl md:text-2xl text-gray-400 mb-8 max-w-2xl">{portfolioData.title}</motion.p>
-                    <motion.div variants={fadeInUp} className="flex flex-wrap justify-center items-center gap-4 sm:gap-5">
-                        <motion.a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-3 sm:p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Github /></motion.a>
-                        <motion.a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-3 sm:p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Linkedin /></motion.a>
-                        <motion.a href={`mailto:${portfolioData.email}`} className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-3 sm:p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Mail /></motion.a>
-                    </motion.div>
                     
-                    {/* --- TOMBOL UNDUH CV BARU --- */}
-                    <motion.div variants={fadeInUp} className="mt-10">
-                      <motion.a
-                        href={portfolioData.cvPath}
-                        download
-                        className="inline-flex items-center gap-3 bg-purple-600 text-white font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Download size={20} />
-                        Unduh CV Saya
-                      </motion.a>
+                    <motion.div variants={fadeInUp} className="flex flex-wrap justify-center items-center gap-5">
+                        <motion.a href={portfolioData.github} target="_blank" rel="noopener noreferrer" className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Github /></motion.a>
+                        <motion.a href={portfolioData.linkedin} target="_blank" rel="noopener noreferrer" className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Linkedin /></motion.a>
+                        <motion.a href={`mailto:${portfolioData.email}`} className="bg-gray-800/40 hover:bg-gray-700/60 backdrop-blur-sm p-4 rounded-full transition-colors" whileHover={{ scale: 1.15, y: -5 }}><Mail /></motion.a>
                     </motion.div>
                 </motion.section>
                 
-                {/* Sisa kode section lainnya tetap sama */}
                 <motion.section id="about" className="py-16 sm:py-24" initial="initial" whileInView="animate" viewport={{ once: true, amount: 0.3 }} variants={staggerContainer}>
                     <motion.h2 variants={fadeInUp} className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-12">Tentang Saya</motion.h2>
                     <motion.div variants={fadeInUp} className="max-w-3xl mx-auto bg-gray-800/30 backdrop-blur-md p-6 sm:p-8 rounded-2xl shadow-2xl shadow-purple-900/10 border border-gray-700/50">

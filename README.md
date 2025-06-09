@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Website Portofolio - Ahmad Fauzan Adiman
 
-## Getting Started
+Selamat datang di repositori untuk website portofolio pribadi saya. Proyek ini dibangun dari awal menggunakan teknologi web modern untuk menciptakan sebuah *showcase* yang bersih, interaktif, dan sepenuhnya responsif, lengkap dengan animasi dan fitur-fitur yang dipoles secara profesional.
 
-First, run the development server:
+![Screenshot Portofolio](https://i.ibb.co/JRm2FCdr/6212984504121935034.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</br>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<p align="center">
+  <a href="https://www.efzyn.my.id/" target="_blank">
+    <img src="https://img.shields.io/badge/Lihat%20Live%20Demo-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo"/>
+  </a>
+</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ✨ Fitur Utama
 
-To learn more about Next.js, take a look at the following resources:
+-   **Desain Modern & Responsif:** Tampilan yang beradaptasi dengan mulus di berbagai perangkat, dari desktop hingga mobile.
+-   **Animasi Halus & Interaktif:** Dibuat dengan **Framer Motion** untuk memberikan pengalaman pengguna yang dinamis:
+    -   Animasi pemuatan awal (Preloader).
+    -   Animasi "mengetik" yang diikuti dengan animasi "gelombang" sebagai *idle animation*.
+    -   Efek *hover* yang interaktif pada tombol dan kartu proyek.
+-   **Navigasi Cerdas:** Dilengkapi dengan *navbar* yang muncul saat menggulir dan secara otomatis menyorot seksi yang sedang aktif.
+-   **Pengalaman Pengguna (UX) yang Dipoles:**
+    -   Kursor kustom yang mengikuti pergerakan mouse.
+    -   Tombol "Kembali ke Atas" untuk navigasi yang mudah.
+    -   Tombol "Unduh CV" yang praktis untuk rekruter.
+-   **Dapat di-Dockerize:** Disiapkan dengan `Dockerfile` dan `.dockerignore` untuk portabilitas dan potensi *self-hosting*.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Teknologi yang Digunakan
 
-## Deploy on Vercel
+-   **Framework:** [Next.js](https://nextjs.org/) 14+ (App Router)
+-   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+-   **Animasi:** [Framer Motion](https://www.framer.com/motion/)
+-   **Bahasa:** JavaScript
+-   **Ikon:** [Lucide React](https://lucide.dev/)
+-   **Deployment:** [Vercel](https://vercel.com/)
+-   **Containerization:** [Docker](https://www.docker.com/)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Menjalankan Secara Lokal
+
+Untuk menjalankan proyek ini di lingkungan pengembangan lokal, ikuti langkah-langkah berikut:
+
+1.  **Clone repositori ini:**
+    ```bash
+    git clone [https://github.com/USERNAME_ANDA/NAMA_REPOSITORI_ANDA.git](https://github.com/USERNAME_ANDA/NAMA_REPOSITORI_ANDA.git)
+    cd NAMA_REPOSITORI_ANDA
+    ```
+
+2.  **Instal dependensi:**
+    ```bash
+    npm install
+    ```
+
+3.  **Jalankan server development:**
+    ```bash
+    npm run dev
+    ```
+
+4.  Buka [http://localhost:3000](http://localhost:3000) di browser Anda.
+
+---
+
+## 🐳 Menjalankan dengan Docker
+
+Anda bisa menjalankan proyek ini menggunakan Docker biasa atau dengan Docker Compose (lebih direkomendasikan).
+
+### Menggunakan Docker Compose (Cara Mudah)
+
+1.  **Pastikan Docker dan Docker Compose sudah terinstal.**
+
+2.  **Jalankan aplikasi:**
+    ```bash
+    docker-compose up --build
+    ```
+    Perintah ini akan membangun image dan menjalankan container secara otomatis. Untuk menjalankannya lagi di lain waktu, cukup gunakan `docker-compose up`.
+
+3.  **Hentikan aplikasi:**
+    ```bash
+    docker-compose down
+    ```
+
+### Menggunakan Docker Biasa
+
+1.  **Build Docker image:**
+    ```bash
+    docker build -t nama-portfolio-anda .
+    ```
+
+2.  **Jalankan Docker container:**
+    ```bash
+    docker run -p 3000:3000 nama-portfolio-anda
+    ```
+
+---
+
+Terima kasih telah mengunjungi repositori ini!
