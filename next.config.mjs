@@ -13,6 +13,14 @@ pathname: '/\*\*',
   protocol: 'https',
   hostname: 'raw.githubusercontent.com',
 },
+{
+  protocol: 'https',
+  hostname: 'blog.nashtechglobal.com',
+},
+{
+  protocol: 'https',
+  hostname: 'i.ibb.co.com',
+},
 ],
 },
 };

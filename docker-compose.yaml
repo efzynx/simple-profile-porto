@@ -1,18 +1,11 @@
-# Menggunakan versi 3.8 yang modern dan stabil
-version: '3.8'
-
-# Mendefinisikan semua layanan (container) yang akan berjalan
+# Versi '3.8' sudah tidak diperlukan di Docker Compose V2+
 services:
-  # Nama layanan kita, misalnya 'portfolio'
   portfolio:
-    # Perintah untuk membangun image Docker
     build:
-      # Konteksnya adalah direktori saat ini (di mana Dockerfile berada)
       context: .
-    # Memberi nama yang jelas pada container agar mudah diidentifikasi
+      network: host
+    network_mode: "host"
     container_name: portfolio-web
-    # Memetakan port 3000 di komputer Anda ke port 3000 di dalam container
-    ports:
-      - "3000:3000"
-    # Kebijakan restart: akan selalu mencoba restart container kecuali dihentikan secara manual
+    # ports:
+    #   - "3000:3000"
     restart: unless-stopped

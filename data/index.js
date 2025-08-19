@@ -41,11 +41,11 @@ export const portfolioData = {
       tags: ["Android", "Java"]
     },
     { 
-      title: "Bot Wa", 
-      description: "Project bot WhatsApp berbasis javascript.", 
-      link: "https://github.com/efzynx/bot-wa",
-      image: "https://raw.githubusercontent.com/efzynx/bot-wa/refs/heads/main/assets/raw_logo.png",
-      tags: ["JavaScript", "Node.js"]
+      title: "Engine Calc ID", 
+      description: "Web app untuk membantu mekanik atau otomotif antusias menghitung rumus pada mesin", 
+      link: "https://github.com/efzynx/Engine-Calc-ID",
+      image: "https://raw.githubusercontent.com/efzynx/Engine-Calc-ID/refs/heads/main/public/icons/android-chrome-512x512.png",
+      tags: ["TypeScript", "Node.js"]
     },
     { 
       title: "Guess Age", 
@@ -53,6 +53,20 @@ export const portfolioData = {
       link: "https://github.com/efzynx/guess-age",
       image: "https://raw.githubusercontent.com/efzynx/guess-age/refs/heads/main/src/img/raw_logo.png",
       tags: ["Computer Vision", "Python", "OpenCV"]
+    },
+    { 
+      title: "Swapi", 
+      description: "Simple memory swap manager for linux using CLI.", 
+      link: "https://github.com/efzynx/swapi",
+      image: "https://blog.nashtechglobal.com/wp-content/uploads/2024/01/swapdiagram-1-1024x536.jpg",
+      tags: ["Python", "system"]
+    },
+    { 
+      title: "Situistik", 
+      description: "Situistik 🕵️Alat diagnostik web sederhana untuk memeriksa status, catatan DNS, dan informasi Whois dari sebuah domain.", 
+      link: "https://github.com/efzynx/situistik",
+      image: "https://i.ibb.co.com/PZJFz45G/screenshot-20082025-011226.png",
+      tags: ["JavaScript", "Python", "CSS", "HTML"]
     },
   ]
 };
